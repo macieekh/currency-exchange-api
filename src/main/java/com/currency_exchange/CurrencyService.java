@@ -25,4 +25,8 @@ public class CurrencyService {
 		currencyRepository.save(currency);
 	}
 	
+	public Currency getCurrencyById(long id) {
+		return currencyRepository.findOne(id);
+	}
+	
 }

@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class ExchangeRate {
 	
@@ -24,6 +26,15 @@ public class ExchangeRate {
 	private Currency currencyTo;
 
 	private double rate;
+	
+	public ExchangeRate() {
+	}
+	
+	public ExchangeRate(Currency currencyFrom, Currency currencyTo, double rate) {
+		this.currencyFrom = currencyFrom;
+		this.currencyTo = currencyTo;
+		this.rate = rate;
+	}
 	
 	public long getId() {
 		return id;
@@ -49,13 +60,7 @@ public class ExchangeRate {
 		this.currencyTo = currencyTo;
 	}
 
-	public ExchangeRate() {
 	
-	}
-	public ExchangeRate(Currency currencyFrom, Currency currencyTo) {
-		this.currencyFrom = currencyFrom;
-		this.currencyTo = currencyTo;
-	}
 
 	public double getRate() {
 		return rate;
